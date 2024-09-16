@@ -1,0 +1,7 @@
+services:
+  php_cli-service:
+    image: project_name_placeholder-php_cli:dev
+    container_name: project_name_placeholder-php_cli:dev
+    working_dir: /var/www/html
+    volumes:
+      - ./code:/var/www/html

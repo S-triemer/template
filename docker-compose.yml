@@ -1,0 +1,39 @@
+services:
+  nginx-service:
+    image: project_name_placeholder-nginx:dev
+    container_name: project_name_placeholder-nginx
+    networks:
+      - project_name_placeholder_network
+    ports:
+      - "81:80"
+    environment:
+      PHP_FPM_SERVICE_NAME: php-service
+      NGINX_ROOT: /var/www/html/public
+    volumes:
+      - ./code/public:/var/www/html/public
+
+  php-service:
+    image: project_name_placeholder-php-fpm:dev
+    container_name: project_name_placeholder-php-fpm
+    networks:
+      - project_name_placeholder_network
+    volumes:
+      - ./code:/var/www/html
+      - ./code/public:/var/www/html/public
+
+  mysql-service:
+    image: project_name_placeholder-mysql:dev
+    container_name: project_name_placeholder-mysql
+    networks:
+      - project_name_placeholder_network
+    ports:
+      - "3306:3306"
+    volumes:
+      - ./code/database:/var/lib/mysql:rw
+    environment:
+      - MYSQL_ROOT_PASSWORD=admin
+
+networks:
+  project_name_placeholder_network:
+    driver: bridge
+
