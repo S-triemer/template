@@ -6,7 +6,7 @@ fi
 
 TARGET_DIR="$1"
 
-git clone git@github.com:S-triemer/template.git "$TARGET_DIR"
+git clone https://github.com/S-triemer/template.git "$TARGET_DIR"
 
 if [ $? -ne 0 ]; then
     echo "Fehler beim Klonen des Repos."
