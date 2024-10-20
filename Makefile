@@ -34,7 +34,7 @@ reset:
 unit-test:
 	docker compose -f docker-compose.yml run --rm --no-deps -e XDEBUG_MODE=coverage php-service php \
         vendor/bin/phpunit --coverage-clover tests/reports/phpunit.coverage.xml --coverage-html tests/reports/ \
-        --configuration phpunit.xml tests/unit/
+        --configuration tests/phpunit.xml tests/unit/
 
 .PHONY: update
 update:

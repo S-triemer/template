@@ -1,2 +1,5 @@
 /code/database
 /code/vendor
+/code/composer.lock
+/code/tests/.phpunit.cache
+/code/tests/reports

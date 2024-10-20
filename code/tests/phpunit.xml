@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<phpunit
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:noNamespaceSchemaLocation="https://schema.phpunit.de/11.0/phpunit.xsd"
+    backupGlobals="false"
+    colors="true"
+    bootstrap="../vendor/autoload.php"
+    stopOnFailure="false"
+    stopOnError="false"
+    failOnRisky="true"
+    failOnWarning="true"
+    cacheResult="true"
+    cacheDirectory=".phpunit.cache"
+    executionOrder="random"
+>
+    <testsuites>
+        <testsuite name="default">
+            <directory>unit</directory>
+        </testsuite>
+    </testsuites>
+
+    <source>
+        <include>
+            <directory suffix=".php">../src</directory>
+        </include>
+    </source>
+
+    <php>
+        <env name="APP_ENV" value="testing"/>
+        <env name="XDEBUG_MODE" value="coverage"/>
+        <ini name="xdebug.mode" value="coverage"/>
+    </php>
+
+    <coverage includeUncoveredFiles="true"
+            pathCoverage="false"
+            ignoreDeprecatedCodeUnits="true"
+            disableCodeCoverageIgnore="true">
+        <report>
+            <html outputDirectory="html-coverage" lowUpperBound="50" highLowerBound="90"/>
+        </report>
+    </coverage>
+
+</phpunit>
